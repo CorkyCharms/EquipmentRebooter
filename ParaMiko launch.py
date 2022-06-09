@@ -4,6 +4,7 @@
 ### Send confirmation email 10 Mins prior to command, confirming ###              
 ### Loop back and ask if user would like to add another job      ###
 ### Count down time until command is initiated                   ###
+### Working on getting the user to pick the day of the week      ###
 ####################################################################
 import paramiko
 import schedule
