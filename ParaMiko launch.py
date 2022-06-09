@@ -6,15 +6,16 @@
 ### Count down time until command is initiated                   ###
 ### Working on getting the user to pick the day of the week      ###
 ####################################################################
+
 import paramiko
 import schedule
 import time
 
-equipment_Ip = input("Please eneter the IP of the equipment: ")
-equipment_Username = input("Please eneter the Username of the equipment: ")
-equipment_Password = input("Please eneter the Password of the equipment: ")
-equipment_CommandScheduleDay = input("Please enter the day you would like to schedule the command: ")
-equipment_CommandScheduleTime = input("Please enter the time you would like to schedule the command: ")
+equipment_ip = input("Please eneter the IP of the equipment: ")
+equipment_username = input("Please eneter the Username of the equipment: ")
+equipment_password = input("Please eneter the Password of the equipment: ")
+equipment_command_schedule_day = input("Please enter the day you would like to schedule the command: ")
+equipment_command_schedule_time = input("Please enter the time you would like to schedule the command: ")
 
 SSH = paramiko.SSHClient()
 
@@ -24,8 +25,8 @@ SSH.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 SSH.connect(
     equipment_Ip,
-    username = equipment_Username,
-    password = equipment_Password,
+    username = equipment_username,
+    password = equipment_password,
     look_for_keys = False
 )
 
@@ -36,7 +37,7 @@ def reboot_EquipmentCommand():
 
 
 #time that command will run.
-schedule.every().monday.at(equipment_CommandScheduleTime).do(reboot_EquipmentCommand)
+schedule.every().monday.at(equipment_command_schedule_time).do(reboot_EquipmentCommand)
 
 all_jobs = schedule.get_jobs()
 print(all_jobs)
