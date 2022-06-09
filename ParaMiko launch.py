@@ -35,7 +35,7 @@ def reboot_EquipmentCommand():
 
 
 #time that command will run.
-schedule.every().setattr(days, equipment_CommandScheduleDay).at(equipment_CommandScheduleTime).do(reboot_EquipmentCommand)
+schedule.every().monday.at(equipment_CommandScheduleTime).do(reboot_EquipmentCommand)
 
 all_jobs = schedule.get_jobs()
 print(all_jobs)
