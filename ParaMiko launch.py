@@ -31,13 +31,13 @@ SSH.connect(
 )
 
 #Commands that will run(reboot)
-def reboot_EquipmentCommand():
+def reboot_equipment_command():
     SSH.exec_command("/sbin/reboot -f > /dev/null 2>&1 &")
     return schedule.CancelJob
 
 
 #time that command will run.
-schedule.every().monday.at(equipment_command_schedule_time).do(reboot_EquipmentCommand)
+schedule.every().monday.at(equipment_command_schedule_time).do(reboot_equipment_command)
 
 all_jobs = schedule.get_jobs()
 print(all_jobs)
